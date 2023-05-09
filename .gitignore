@@ -1,0 +1,5 @@
+.env
+.secret
+.api-key
+/node_modules
+/build
