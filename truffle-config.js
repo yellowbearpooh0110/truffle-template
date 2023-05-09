@@ -112,9 +112,10 @@ module.exports = {
       // }
     },
   },
+  plugins: ["truffle-plugin-verify"],
 
   api_keys: {
-    etherscan: bscAPIKey,
+    bscscan: bscAPIKey,
   },
 
   // Truffle DB is currently disabled by default; to enable it, change enabled:
