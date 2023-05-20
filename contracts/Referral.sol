@@ -393,17 +393,17 @@ contract Referral is IERC721Receiver, Ownable {
         }
     }
 
-    function addReferral(address _address) public {
+    function addReferral(address _address, address _referer) public onlyOwner {
         require(
-            _address != address(0) &&
-                _address != _msgSender() &&
-                refer[_msgSender()] == address(0),
-            "Please provide correct link"
+            _referer != address(0) &&
+                _referer != _address &&
+                refer[_address] == address(0),
+            "Please provide params"
         );
-        refer[_msgSender()] = _address;
-        ReferralData memory data = referralInfo[_address];
+        refer[_address] = _referer;
+        ReferralData memory data = referralInfo[_referer];
         data.noOfRefrees += 1;
-        referralInfo[_address] = data;
+        referralInfo[_referer] = data;
     }
 
     function LPCalculation() public view returns (uint256) {
