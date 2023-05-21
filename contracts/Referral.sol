@@ -200,13 +200,13 @@ contract Referral is IERC721Receiver, Ownable {
         uint256 noOfrockSold;
     }
 
-    IERC20 private BRICKS;
-    IERC20 private USDC;
-    IERC721 private ROCK;
-    IPair private Pair;
-    IRouter private Router;
-    address private immutable WBNB;
-    address private immutable tokenReceiver =
+    IERC20 public BRICKS;
+    IERC20 public USDC;
+    IERC721 public ROCK;
+    IPair public Pair;
+    IRouter public Router;
+    address public immutable WBNB;
+    address public immutable tokenReceiver =
         0x000000000000000000000000000000000000dEaD;
 
     mapping(address => address) public refer;
