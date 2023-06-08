@@ -254,7 +254,7 @@ contract NftMarketplace is ReentrancyGuard, IERC721Receiver, Ownable {
                 IERC20(listedItem.currency).allowance(
                     msg.sender,
                     address(this)
-                ) < listedItem.price.mul(8).div(10)
+                ) < listedItem.price.mul(12).div(10)
             ) {
                 revert NotApprovedForMarketplace();
             }
