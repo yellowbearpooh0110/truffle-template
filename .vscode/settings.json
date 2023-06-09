@@ -1,0 +1,6 @@
+{
+    "solidity.compileUsingLocalVersion": "e:\\Work\\Chris Germano\\truffle\\soljson-v0.8.20+commit.a1b79de6.js",
+    "solidity.defaultCompiler": "localFile",
+    "solidity.packageDefaultDependenciesDirectory": "node_modules",
+    "solidity.packageDefaultDependenciesContractsDirectory": "contracts"
+}
