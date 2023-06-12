@@ -42,11 +42,20 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    // development: {
-    //  host: "127.0.0.1",     // Localhost (default: none)
-    //  port: 8545,            // Standard Ethereum port (default: none)
-    //  network_id: "*",       // Any network (default: none)
-    // },
+    development: {
+      // host: "127.0.0.1", // Localhost (default: none)
+      // port: 7545, // Standard Ethereum port (default: none)
+      // network_id: 5777, // Any network (default: none)
+      provider: () =>
+        new HDWalletProvider(
+          "rural inch veteran tag miss celery size inch feature achieve hockey you",
+          `http://127.0.0.1:7545`
+        ),
+      network_id: 5777,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
@@ -76,7 +85,7 @@ module.exports = {
       provider: () =>
         new HDWalletProvider(
           mnemonic,
-          `https://data-seed-prebsc-1-s1.binance.org:8545`
+          `https://data-seed-prebsc-1-s1.binance.org:8545/`
         ),
       network_id: 97,
       confirmations: 10,
@@ -101,7 +110,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.20", // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.19", // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
