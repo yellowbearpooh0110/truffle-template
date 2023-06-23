@@ -11,6 +11,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "./interfaces/IMyROCKS.sol";
 import "./interfaces/IMyUSD.sol";
 import "./interfaces/ITreasury.sol";
+import "./MultiCallExtended.sol";
 
 // Check out https://github.com/Fantom-foundation/Artion-Contracts/blob/5c90d2bc0401af6fb5abf35b860b762b31dfee02/contracts/FantomMarketplace.sol
 // For a full decentralized nft marketplace
@@ -28,7 +29,12 @@ error PriceMustBeAboveZero();
 // Error thrown for isNotOwner modifier
 // error IsNotOwner()
 
-contract NftMarketplace is ReentrancyGuard, IERC721Receiver, Ownable {
+contract NftMarketplace is
+    ReentrancyGuard,
+    IERC721Receiver,
+    Ownable,
+    MulticallExtended
+{
     using SafeMath for uint256;
     struct Listing {
         address currency;
