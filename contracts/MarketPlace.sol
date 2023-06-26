@@ -25,6 +25,7 @@ error NotOwner();
 error NotLister(address nftAddress, uint256 tokenId);
 error NotApprovedForMarketplace();
 error PriceMustBeAboveZero();
+error NotCorrectWithdrawAmount();
 
 // Error thrown for isNotOwner modifier
 // error IsNotOwner()
@@ -373,5 +374,21 @@ contract NftMarketplace is
                     .timestamp = currentTimestamp;
             }
         }
+    }
+
+    function withdrawBNB(uint256 value) external onlyOwner {
+        address owner = owner();
+        if (address(this).balance < value) {
+            revert NotCorrectWithdrawAmount();
+        }
+        payable(owner).transfer(value);
+    }
+
+    function withdrawToken(address token, uint256 value) external onlyOwner {
+        address owner = owner();
+        if (IERC20(token).balanceOf(address(this)) < value) {
+            revert NotCorrectWithdrawAmount();
+        }
+        IERC20(token).transferFrom(msg.sender, owner, value);
     }
 }
