@@ -1,6 +1,6 @@
 // const Referral = artifacts.require("Referral");
-// const MarketPlace = artifacts.require("MarketPlace");
-const MyUSD = artifacts.require("MyUSD");
+const MarketPlace = artifacts.require("NftMarketplace");
+// const MyUSD = artifacts.require("MyUSD");
 
 module.exports = function (deployer) {
   // deployer.deploy(
@@ -12,5 +12,10 @@ module.exports = function (deployer) {
   //   "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
   //   "0x10ED43C718714eb63d5aA57B78B54704E256024E"
   // );
-  deployer.deploy(MyUSD);
+  deployer.deploy(
+    MarketPlace,
+    "0x6D635dc4a2A54664B54dF6a63e5ee31D5b29CF6e",
+    "0xad9317601872de47a92a175a94feb18e72cb5bd5",
+    "0x1A2c2204fEe5355080a1bCbC0F4E8aDd58d4b6d7"
+  );
 };

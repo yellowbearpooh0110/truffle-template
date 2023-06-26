@@ -52,7 +52,6 @@ module.exports = {
           `http://127.0.0.1:7545`
         ),
       network_id: 5777,
-      confirmations: 10,
       timeoutBlocks: 200,
       skipDryRun: true,
     },
